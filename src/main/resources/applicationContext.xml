@@ -10,31 +10,37 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
 
-
-    <bean id="rapMusic"
-          class="ru.nevredimov.springcourse.RapMusic">
+    <bean id="musicBean"
+          class="ru.nevredimov.springcourse.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
     </bean>
 
-    <bean id="rockMusic"
-          class="ru.nevredimov.springcourse.RockMusic">
-    </bean>
 
-    <bean id="classicalMusic"
-          class="ru.nevredimov.springcourse.ClassicalMusic">
-    </bean>
 
-    <bean id="musicPlayer"
-          class="ru.nevredimov.springcourse.MusicPlayer">
-        <property name="musicList">
-            <list>
-                <ref bean="classicalMusic"/>
-                <ref bean="rockMusic"/>
-                <ref bean="rapMusic"/>
-            </list>
-        </property>
+<!--    <bean id="rockMusic"-->
+<!--          class="ru.nevredimov.springcourse.RockMusic">-->
+<!--    </bean>-->
 
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+<!--    <bean id="classicalMusic"-->
+<!--          class="ru.nevredimov.springcourse.ClassicalMusic">-->
+<!--    </bean>-->
+
+<!--    <bean id="musicPlayer"-->
+<!--          class="ru.nevredimov.springcourse.MusicPlayer"-->
+<!--          scope="prototype">-->
+<!--        <property name="music" ref="musicBean"/>-->
+<!--        <property name="musicList">-->
+<!--            <list>-->
+<!--                <ref bean="classicalMusic"/>-->
+<!--                <ref bean="rockMusic"/>-->
+<!--                <ref bean="rapMusic"/>-->
+<!--            </list>-->
+<!--        </property>-->
+
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 
 </beans>
